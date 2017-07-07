@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Outbound Messages</h1>
+
+<table class="table table-striped table-hover">
+  <thead class="thead-inverse">
+    <tr>
+      <th>Sender</th>
+      <th>Destination</th>
+      <th>Message</th>
+      <th>Date</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @outbound_messages.each do |outbound_message| %>
+      <tr>
+        <td><%= outbound_message.sender%></td>
+        <td><%= outbound_message.destination%></td>
+        <td><%= outbound_message.text_message%></td>
+        <td><%= outbound_message.created_at%></td>
+        <td><%= link_to 'Show', outbound_message %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
