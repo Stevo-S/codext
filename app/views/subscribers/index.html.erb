@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Subscribers</h1>
+
+<table class="table table-striped table-hover">
+  <thead class="thead-inverse">
+    <tr>
+      <th>Phone Number</th>
+      <th>Short Code</th>
+      <th>Active?</th>
+      <th>First Subscription</th>
+      <th>Recent Subscription</th>
+      <th>Recent Unsubscription</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @subscribers.each do |subscriber| %>
+      <tr>
+	<td><%= subscriber.phone_number %></td>
+	<td><%= subscriber.short_code.code %></td>
+	<td><%= subscriber.active? %></td>
+	<td><%= subscriber.first_subscribed_at %></td>
+	<td><%= subscriber.last_subscribed_at %></td>
+	<td><%= subscriber.last_unsubscribed_at %></td>
+        <td><%= link_to 'Show', subscriber %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+

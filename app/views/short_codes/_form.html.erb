@@ -1,0 +1,26 @@
+<%#= form_with(model: short_code, local: true, class: 'form-horizontal') do |form| %>
+  <% if short_code&.errors&.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(short_code.errors.count, "error") %> prohibited this short_code from being saved:</h2>
+
+      <ul>
+      <% short_code.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%#= form.text_field :code, class: 'form-control' %>
+    <%#= form.submit %>
+  </div>
+<%# end %>
+
+
+<%= simple_form_for @short_code do |f| %>
+    <%= f.input :code, label_html: { class: 'col-md-1 col-form-label' }, input_html: { class: 'col-md-2', type: 'number', min: '100', max: '99999' } %>
+    <%= f.input :activated, label_html: { class: 'col-md-2 col-form-label' }, input_html: { class: 'col-md-2' } %>
+
+    <%= f.submit %>
+<% end %>

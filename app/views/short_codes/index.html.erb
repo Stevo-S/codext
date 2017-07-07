@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Short Codes</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Code</th>
+      <th>Activated?</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @short_codes&.each do |short_code| %>
+      <tr>
+        <td><%= short_code.code %></td>
+	<td><%= short_code.activated %></td>
+        <td><%= link_to 'Show', short_code %></td>
+        <td><%= link_to 'Edit', edit_short_code_path(short_code) %></td>
+        <td><%= link_to 'Destroy', short_code, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Short Code', new_short_code_path %>

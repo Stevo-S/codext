@@ -1,0 +1,14 @@
+<h2>Short Code Details</h2>
+
+<p id="notice"><%= notice %></p>
+
+<dl class="row">
+    <dt class="col-md-3">Code:</dt>
+    <dd class="col-md-9"><%= @short_code.code %></dd>
+
+    <dt class="col-md-3">Activated?</dt>
+    <dd class="col-md-9"><%= @short_code.activated? %></dd>
+</dl>
+
+<%= link_to 'Edit', edit_short_code_path(@short_code) %> |
+<%= link_to 'Back', short_codes_path %>
