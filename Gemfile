@@ -64,7 +64,7 @@ gem 'simple_form'
 
 # Use sidekiq for background jobs
 gem 'sidekiq'
-
+gem 'redis-namespace'
 
 # Use PostgreSQL for database management
 gem 'pg'
