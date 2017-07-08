@@ -4,11 +4,18 @@
 
 <div class="container">
     <%= search_form_for @q, class: 'form-inline' do |f| %>
-	<%= f.label 'Subscribed last between' %>
-	<%= f.search_field :last_subscribed_at_gteq, class: 'form-control form-control-sm', type: 'datetime-local' %>
+	<%= f.select :short_code_id_eq, options_from_collection_for_select(ShortCode.all, "id", "code"), { prompt: 'Short Code' }%>
+	&nbsp;
+	<div class="form-group">
+	    <%= f.label 'Subscribed last between' %>
+	    <%= f.search_field :last_subscribed_at_gteq, class: 'form-control form-control-sm', type: 'datetime-local' %>
+								 </div>
+	&nbsp;
 	<%= f.label ' and ' %>	    
+	&nbsp;
 	<%= f.search_field :last_unsubscribed_at_lteq, class: 'form-control form-control-sm', type: 'datetime-local' %>
 
+	&nbsp;
 	<%= f.submit %>
     <% end %>
 
