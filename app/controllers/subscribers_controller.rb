@@ -1,5 +1,8 @@
 class SubscribersController < ApplicationController
     def index
-	@subscribers = Subscriber.all
+	page = params[:page]
+	per_page = params[:per_page]
+	@q = Subscriber.ransack(params[:q])
+	@subscribers = @q.result(distinct: true).page params[:page]
     end
 end

@@ -68,3 +68,9 @@ gem 'redis-namespace'
 
 # Use PostgreSQL for database management
 gem 'pg'
+
+# Use Ransack for search forms
+gem 'ransack'
+
+# Use kaminari for paging
+gem 'kaminari'

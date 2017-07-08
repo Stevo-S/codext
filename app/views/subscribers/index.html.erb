@@ -2,6 +2,19 @@
 
 <h1>Subscribers</h1>
 
+<div class="container">
+    <%= search_form_for @q, class: 'form-inline' do |f| %>
+	<%= f.label 'Subscribed last between' %>
+	<%= f.search_field :last_subscribed_at_gteq, class: 'form-control form-control-sm', type: 'datetime-local' %>
+	<%= f.label ' and ' %>	    
+	<%= f.search_field :last_unsubscribed_at_lteq, class: 'form-control form-control-sm', type: 'datetime-local' %>
+
+	<%= f.submit %>
+    <% end %>
+
+    <h3>Total: <%= @subscribers.count %></h3>
+</div>
+
 <table class="table table-striped table-hover">
   <thead class="thead-inverse">
     <tr>
@@ -32,3 +45,4 @@
 
 <br>
 
+<%= paginate @subscribers %>
