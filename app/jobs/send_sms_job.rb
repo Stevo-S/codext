@@ -1,3 +1,5 @@
+require 'net/http'
+
 class SendSmsJob < ApplicationJob
   queue_as :default
 
