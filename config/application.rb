@@ -18,5 +18,8 @@ module Codext
 
     # Use Sidekiq as Job adpter
     config.active_job.queue_adapter = :sidekiq
+
+    # Use East African Time
+    config.time_zone = 'Nairobi'
   end
 end

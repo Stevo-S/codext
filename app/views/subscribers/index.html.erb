@@ -41,9 +41,9 @@
 	<td><%= subscriber.phone_number %></td>
 	<td><%= subscriber.short_code.code %></td>
 	<td><%= subscriber.active? %></td>
-	<td><%= subscriber.first_subscribed_at %></td>
-	<td><%= subscriber.last_subscribed_at %></td>
-	<td><%= subscriber.last_unsubscribed_at %></td>
+	<td><%= subscriber.first_subscribed_at&.strftime('%d/%m/%Y %H/%M/%S') %></td>
+	<td><%= subscriber.last_subscribed_at&.strftime('%d/%m/%Y %H/%M/%S')%></td>
+	<td><%= subscriber.last_unsubscribed_at&.strftime('%d/%m/%Y %H/%M/%S') %></td>
         <td><%= link_to 'Show', subscriber %></td>
       </tr>
     <% end %>
