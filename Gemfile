@@ -56,7 +56,11 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # Use Passenger as web server
 gem "passenger", "~> 5.0", require: "phusion_passenger/rack_handler"
 
+# Include jQuery
+gem 'jquery-rails'
+
 # Use Bootstrap in views
+gem 'rails-assets-tether'
 gem 'bootstrap'
 
 # Use simple_form 
