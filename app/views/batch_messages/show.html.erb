@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<dl class="row">
+    <dt class="col-md-3">Message Content</dt>
+    <dd class="col-md-9"><%= @batch_message.message_content %></dd>
+
+    <dt class="col-md-3">Short Codes</dt>
+    <dd class="col-md=9">
+	<% @batch_message.short_codes.each do |sc| %>
+	    <span><%= sc.code %></span><br/>
+	<% end %>
+    </dd>
+</dl>
+
+
+<%= link_to 'Edit', edit_batch_message_path(@batch_message) %> |
+<%= link_to 'Back', batch_messages_path %>

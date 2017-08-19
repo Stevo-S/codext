@@ -5,6 +5,7 @@
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'custom', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
@@ -21,6 +22,16 @@
             <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
           </li>
         </ul>
+
+	<ul class="nav navbar-nav"> 
+	    <% if user_signed_in? %>
+		<li class="nav-item">
+		    <li><%= link_to 'Log Out ' + current_user.name, destroy_user_session_path, { class: 'nav-link', method: :delete } %></li>
+		</li>
+	    <% else %>
+		<li><%= link_to 'Log In', new_user_session_path, { class: 'nav-link' } %></li>
+	    <% end %>
+	</ul>
       </div>
     </nav>
 

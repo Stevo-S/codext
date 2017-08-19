@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Batch Messages</h1>
+
+<%= link_to 'New Batch Message', new_batch_message_path %>
+
+<table class="table table-striped">
+  <thead class="thead-inverse">
+    <tr>
+      <th>Message Content</th>
+      <th>Short Codes</th>
+      <th>Created At</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @batch_messages.each do |batch_message| %>
+      <tr>
+        <td><%= batch_message.message_content%></td>
+	<td><%= batch_message.short_codes.pluck(:code).join(', ') %></td>
+	<td><%= batch_message.created_at.strftime('%d/%m/%Y %H:%M:%S') %></td>
+        <td><%= link_to 'Show', batch_message %></td>
+        <td><%= link_to 'Edit', edit_batch_message_path(batch_message) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= paginate @batch_messages %>

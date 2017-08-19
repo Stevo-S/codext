@@ -4,7 +4,7 @@
 
 <div class="container">
     <%= search_form_for @q, class: 'form-inline' do |f| %>
-	<%= f.select :short_code_id_eq, options_from_collection_for_select(ShortCode.all, "id", "code", params.dig(:q, :short_code_id_eq) ), { prompt: 'Short Code'}, { 'class': 'custom-select' }%>
+	<%= f.select :short_code_id_eq, options_from_collection_for_select(current_user.short_codes, "id", "code", params.dig(:q, :short_code_id_eq) ), { prompt: 'Short Code'}, { 'class': 'custom-select' }%>
 	&nbsp;
 	<%= f.select :active_eq, options_for_select([['Active', true], ['Inactive', false]],  selected: params.dig(:q, :active_eq) ), { prompt: 'Status'}, { 'class': 'custom-select' }%>
 	&nbsp;

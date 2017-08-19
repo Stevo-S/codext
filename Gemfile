@@ -78,3 +78,13 @@ gem 'ransack'
 
 # Use kaminari for paging
 gem 'kaminari'
+
+
+# Use Devise for authentication
+gem 'devise'
+
+# Use ActiveAdmin for an admin panel
+gem 'activeadmin'
+
+# Use cancancan for authorisation
+gem 'cancancan'

@@ -1,4 +1,8 @@
 class ShortCodesController < ApplicationController
+
+    protect_from_forgery
+    before_action :authenticate_user!	
+
     def index
 	@short_codes = ShortCode.all
     end

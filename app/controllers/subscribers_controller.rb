@@ -1,4 +1,9 @@
 class SubscribersController < ApplicationController
+
+    protect_from_forgery
+    before_action :authenticate_user!
+    load_and_authorize_resource 
+
     def index
 	page = params[:page]
 	per_page = params[:per_page]

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Codext</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'welcome' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+    <div class="site-wrapper">
+
+      <div class="site-wrapper-inner">
+
+        <div class="cover-container">
+
+          <div class="masthead clearfix">
+            <div class="inner">
+              <h3 class="masthead-brand">CODEXT</h3>
+              <nav class="nav nav-masthead">
+	        <%= link_to 'Subscribers', subscribers_path, { class: 'nav-link' } %>
+	        <%= link_to 'Short Codes', short_codes_path, { class: 'nav-link' } %>
+                <a class="nav-link" href="#">Contact</a>
+              </nav>
+            </div>
+          </div>
+
+          <div class="inner cover">
+            <h1 class="cover-heading">Codext SMS Platform</h1>
+            <p class="lead">Track and manage subscribers and the messages you send them</p>
+            <p class="lead">
+              <a href="#" class="btn btn-lg btn-secondary">Learn more</a>
+            </p>
+          </div>
+
+          <div class="mastfoot">
+            <div class="inner">
+              <p>Cover template for <a href="https://getbootstrap.com">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </body>
+</html>
+
+
