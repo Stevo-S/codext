@@ -10,7 +10,7 @@ class SubscribersController < ApplicationController
 	@q = Subscriber.ransack(params[:q])
 	@q.last_subscribed_at_gteq = Date.today.midnight unless params[:q]
 	@q.sorts = 'updated_at desc'
-	@subscribers = @q.result(distinct: true).page params[:page]
+	@subscribers = @q.result(distinct: true).accessible_by(current_ability).page params[:page]
 
 	if params[:q].nil? then
 	    params[:q] = { last_subscribed_at_gteq: Date.today.midnight.strftime('%FT%T'),
