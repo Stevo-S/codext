@@ -31,6 +31,10 @@ class Ability
 
     user ||= User.new
     
-    can :read, Subscriber, short_code_id: user.short_codes.pluck(:id)
+    can :read,    Subscriber, short_code_id: user.short_codes.pluck(:id)
+
+    if AdminUser.find_by_email(user.email) then
+	can :manage, BatchMessage
+    end
   end
 end

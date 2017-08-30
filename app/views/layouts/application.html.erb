@@ -21,6 +21,9 @@
           <li class="nav-item active">
             <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
           </li>
+	  <li class="nav-item">
+	      <%= link_to_if(AdminUser.find_by_email(current_user&.email), 'Batch Messages', batch_messages_path, { class: 'nav-link' }) %>
+	  </li>
         </ul>
 
 	<ul class="nav navbar-nav"> 
