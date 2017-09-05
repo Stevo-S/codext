@@ -9,6 +9,7 @@ class SubscribersController < ApplicationController
 	per_page = params[:per_page]
 	@q = Subscriber.ransack(params[:q])
 	@q.last_subscribed_at_gteq = Date.today.midnight unless params[:q]
+	@q.active = = true unless params[:q]
 	@q.sorts = 'updated_at desc'
 	@subscribers = @q.result(distinct: true).accessible_by(current_ability).page params[:page]
 

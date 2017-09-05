@@ -4,4 +4,9 @@ class ShortCode < ApplicationRecord
 
     has_and_belongs_to_many :users
     has_and_belongs_to_many :batch_messages
+
+
+    def to_s
+	code
+    end
 end
