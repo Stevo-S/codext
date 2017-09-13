@@ -19,14 +19,15 @@ class BatchMessagesController < ApplicationController
 
   def new
     @batch_message = BatchMessage.new
+    @batch_message.send_time = Time.now + 2.minutes
   end
 
   def create
     @batch_message = BatchMessage.create(batch_message_params)
     @batch_message.short_codes << ShortCode.find(params[:batch_message][:short_code_ids].reject(&:empty?))
-    @batch_message.save
-
-    SendBatchMessageJob.perform_later(@batch_message.id)
+    if @batch_message.save then
+	SendBatchMessageJob.set(wait_until: @batch_message.send_time).perform_later(@batch_message.id)
+    end
 
     redirect_to @batch_message
   end
@@ -37,6 +38,6 @@ class BatchMessagesController < ApplicationController
 
   private
   def batch_message_params
-    params.require(:batch_message).permit(:message_content, :start_time, :end_time) 
+    params.require(:batch_message).permit(:message_content, :send_time) 
   end
 end
