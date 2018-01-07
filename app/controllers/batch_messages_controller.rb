@@ -36,8 +36,12 @@ class BatchMessagesController < ApplicationController
     @batch_message = BatchMessage.find(params[:id])
   end
 
+  def update
+    @batch_message = BatchMessage.find(params[:id])
+  end
+
   private
   def batch_message_params
-    params.require(:batch_message).permit(:message_content, :send_time) 
+    params.require(:batch_message).permit(:id, :message_content, :send_time, :short_code_ids) 
   end
 end

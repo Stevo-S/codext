@@ -20,7 +20,7 @@
       <tr>
         <td><%= batch_message.message_content%></td>
 	<td><%= batch_message.short_codes.pluck(:code).join(', ') %></td>
-	<td><%= batch_message.send_time&.strftime('%d%m%Y %H:%M:%S') %></td>
+	<td><%= batch_message.send_time&.strftime('%d/%m/%Y %H:%M:%S') %></td>
 	<td><%= batch_message.created_at.strftime('%d/%m/%Y %H:%M:%S') %></td>
         <td><%= link_to 'Show', batch_message %></td>
         <td><%= link_to 'Edit', edit_batch_message_path(batch_message) %></td>
