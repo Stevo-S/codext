@@ -14,4 +14,8 @@ ActiveAdmin.register ShortCode do
 
     permit_params :code, :activated
 
+    filter :code
+    filter :activated
+    filter :created_at
+    filter :updated_at
 end
