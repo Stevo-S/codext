@@ -9,7 +9,7 @@ class SendSmsJob < ApplicationJob
     send_sms_request = Net::HTTP::Post.new uri
     send_sms_request.content_type = 'application/json'
     sms_message = {
-	destination: @message.destination,
+	destination: [@message.destination],
 	sender: @message.sender,
 	message: @message.text_message,
 	linkId: @message.linkid
