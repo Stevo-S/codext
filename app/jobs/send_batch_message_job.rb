@@ -8,11 +8,11 @@ class SendBatchMessageJob < ApplicationJob
     uri = URI(Rails.application.secrets.gateway_send_url.to_s)
 
     @subscribers = @current_short_code.subscribers.where(active: true)
-    @subscribers.each do |s|
+    @subscribers.each_slice(1000) do |s|
 	send_sms_request = Net::HTTP::Post.new uri
 	send_sms_request.content_type = 'application/json'
 	sms_message = {
-	    destination: s.phone_number,
+	    destination: s.pluck(:phone_number),
 	    sender: @current_short_code.code,
 	    message: @batch_message.message_content
 	}

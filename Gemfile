@@ -96,3 +96,4 @@ gem 'activeadmin'
 
 # Use cancancan for authorisation
 gem 'cancancan'
+
