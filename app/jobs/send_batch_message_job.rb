@@ -4,7 +4,7 @@ class SendBatchMessageJob < ApplicationJob
   def perform(batch_message_id)
     @batch_message = BatchMessage.find(batch_message_id)
 
-    @batchmessage.short_codes.each do |short_code|
+    @batch_message.short_codes.each do |short_code|
 	@current_short_code = short_code
 	uri = URI(Rails.application.secrets.gateway_send_url.to_s)
 
