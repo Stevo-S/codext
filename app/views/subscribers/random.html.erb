@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<h3>Random Subscriber</h3>
+
+<% if @random_subscriber %>
+    <dl>
+	<dt>Phone Number</dt>
+	<dl><%= @random_subscriber.phone_number %></dl>
+	<dt>Short Code</dt>
+	<dl><%= @random_subscriber.short_code.code %></dl>
+	<dt>Active?</dt>
+	<dl><%= @random_subscriber.active? %></dl>
+	<dt>First Subscription</dt>
+	<dl><%= @random_subscriber.first_subscribed_at&.strftime('%d/%m/%Y %H:%M:%S %p') %></dl>
+	<dt>Recent Subscription</dt>
+	<dl><%= @random_subscriber.last_subscribed_at&.strftime('%d/%m/%Y %H:%M:%S %p') %></dl>
+	<dt>Recent Unsubscription</dt>
+	<dl><%= @random_subscriber.last_unsubscribed_at&.strftime('%d/%m/%Y %H:%M:%S %p') %></dl>
+    </dl>
+<%end%>
+
+<%= link_to 'Back', subscribers_path %>
