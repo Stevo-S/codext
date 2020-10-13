@@ -18,6 +18,8 @@
 
 	&nbsp;
 	<%= f.submit class: 'btn btn-primary btn-sm' %>
+	&nbsp;
+	<%= f.submit "Random Subscriber", formaction: subscribers_random_path, class: 'btn btn-primary btn-sm' %>
     <% end %>
 
     <h3>Total: <%= @subscribers.total_count %></h3>

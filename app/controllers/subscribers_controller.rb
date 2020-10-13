@@ -18,4 +18,14 @@ class SubscribersController < ApplicationController
 	   	last_subscribed_at_lteq: Date.tomorrow.strftime('%FT%T'), active_eq: true }
 	end
     end
+
+    def random
+	@q = Subscriber.order('RANDOM()').ransack(params[:q])
+	@q.last_subscribed_at_gteq = Date.today.midnight unless params[:q]
+	@q.active_eq = true unless params[:q]
+	
+	@subscribers = @q.result().accessible_by(current_ability)
+
+    	@random_subscriber = @subscribers.first
+    end
 end
